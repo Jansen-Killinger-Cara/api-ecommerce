@@ -1,4 +1,19 @@
 package br.com.senai.api_ecommerce.categoria;
 
-public class DadosCadastroCategoria {
+import jakarta.persistence.Column;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+//DTO objeto para transferir dados
+//public class DadosCadastroCategoria {
+public record DadosCadastroCategoria(
+
+        @NotBlank
+        @Size(min = 3, max = 60)
+        @Column(unique = true)
+        String nome,
+
+        @Size(max = 255)
+        String descricao
+) {
 }
